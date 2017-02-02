@@ -23,33 +23,6 @@ import javax.faces.bean.ApplicationScoped;
  */
 @ApplicationScoped
 public class Account {
-
-    double cash;
-    double balance;
-    double deposit;
-    double withdraw;
-
-    public Account() {
-        this.cash = 0;
-        this.balance = 0;
-        this.deposit = 0;
-        this.withdraw = 0;
-    }
-    
-    /**Constructor taking inputed values and assigning them to 
-     * THIS.variables
-     * @param cash
-     * @param balance
-     * @param deposit
-     * @param withdraw
-     **/
-    public Account(double cash, double balance, double deposit, double withdraw){
-        this.cash = cash;
-        this.balance = balance;
-        this.deposit = deposit;
-        this.withdraw = withdraw;
-    }
-
     /**
      * Returns the current total balance of the account
      * @return - the balance
