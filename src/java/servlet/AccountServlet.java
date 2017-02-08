@@ -43,4 +43,11 @@ public class AccountServlet extends HttpServlet {
             System.err.println("Something went wrong: " + ex.getMessage());
         }
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        double depositAmount = Double.parseDouble(request.getParameter("deposit"));
+        if (depositAmount != 0)
+            account.deposit(depositAmount);
+    }
 }
