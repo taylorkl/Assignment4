@@ -46,8 +46,11 @@ public class AccountServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        double depositAmount = Double.parseDouble(request.getParameter("deposit"));
-        if (depositAmount != 0)
+        String depositParameter = request.getParameter("deposit");
+        double depositAmount = 0;
+        if (depositParameter != null) {
+            depositAmount = Double.parseDouble(depositParameter);
             account.deposit(depositAmount);
+        }
     }
 }
