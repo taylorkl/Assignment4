@@ -23,12 +23,28 @@ import javax.faces.bean.ApplicationScoped;
  */
 @ApplicationScoped
 public class Account {
+    private double balance;
+    
+    /**
+     * Basic constructor, initializes balance at 0
+     */
+    public Account() {
+        this.balance = 0;
+    }
+    
+    /**
+     * Constructor initializes with balance
+     * @param balance - The balance to start with
+     */
+    public Account(double balance) {
+        this.balance = balance;
+    }
     /**
      * Returns the current total balance of the account
      * @return - the balance
      */
     public double getBalance() {
-        return -999;
+        return this.balance;
     }
     
     /**
@@ -36,7 +52,7 @@ public class Account {
      * @param cash - the cash to deposit
      */
     public void deposit(double cash) {
-        
+        this.balance += cash;
     }
     
     /**
@@ -44,13 +60,13 @@ public class Account {
      * @param cash - the cash to withdraw
      */
     public void withdraw(double cash) {
-    
+        this.balance -= cash;    
     }
     
     /**
      * Deducts all cash from the total balance of the account
      */
     public void close() {
-        
+        this.balance = 0;
     }
 }
