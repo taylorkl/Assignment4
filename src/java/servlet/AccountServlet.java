@@ -52,5 +52,13 @@ public class AccountServlet extends HttpServlet {
             depositAmount = Double.parseDouble(depositParameter);
             account.deposit(depositAmount);
         }
+        
+        String withdrawParameter = request.getParameter("withdraw");
+        double withdrawAmount = 0;
+        if (withdrawParameter != null) {
+            withdrawAmount = Double.parseDouble(withdrawParameter);
+            account.withdraw(withdrawAmount);
     }
+   
+}
 }

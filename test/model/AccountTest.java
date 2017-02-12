@@ -48,14 +48,12 @@ public class AccountTest {
     @Test
     public void testGetBalanceIs100AfterDeposit500ThenWithdraw400() {
         double depositCash = 500;
-        double withdrawCash = 100;
+        double withdrawCash = 400;
         Account instance = new Account();
         instance.deposit(depositCash);
         instance.withdraw(withdrawCash);
-        double expResult = 500.0;
+        double expResult = 100;
         double result = instance.getBalance();
-        assertEquals(expResult, result, 0.0);
-        expResult = 400.0;
         assertEquals(expResult, result, 0.0);
     }
     
