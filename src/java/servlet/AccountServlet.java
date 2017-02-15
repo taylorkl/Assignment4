@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package servlet;
 
 import java.io.IOException;
@@ -29,8 +28,9 @@ import model.Account;
  */
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
+
     Account account = new Account();
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         try (PrintWriter out = response.getWriter()) {
@@ -43,7 +43,7 @@ public class AccountServlet extends HttpServlet {
             System.err.println("Something went wrong: " + ex.getMessage());
         }
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String depositParameter = request.getParameter("deposit");
@@ -52,13 +52,18 @@ public class AccountServlet extends HttpServlet {
             depositAmount = Double.parseDouble(depositParameter);
             account.deposit(depositAmount);
         }
-        
+
         String withdrawParameter = request.getParameter("withdraw");
         double withdrawAmount = 0;
         if (withdrawParameter != null) {
             withdrawAmount = Double.parseDouble(withdrawParameter);
             account.withdraw(withdrawAmount);
+        }
+
+        String closeParameter = request.getParameter("close");
+        if (closeParameter != null){
+            account.close();
+        }
+        
     }
-   
-}
 }

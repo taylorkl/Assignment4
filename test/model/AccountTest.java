@@ -67,6 +67,7 @@ public class AccountTest {
         assertEquals(expResult, result, 0.0);
         expResult = 0.0;
         instance.close();
+        result = instance.getBalance();
         assertEquals(expResult, result, 0.0);
     }
 }
